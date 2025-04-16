@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import TaskContext from '../context/TaskContext';
 import AuthContext from '../context/AuthContext';
 import TaskItem from '../components/TaskItem';
@@ -7,9 +7,19 @@ import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
   const { tasks, loading, error } = useContext(TaskContext);
-  const { logout } = useContext(AuthContext);
+  const { logout, isAuthenticated, clearError } = useContext(AuthContext);
   const [filter, setFilter] = useState('all'); // 'all', 'active', 'completed'
   const navigate = useNavigate();
+
+    useEffect(() => {
+      // If user is already authenticated, redirect to dashboard
+      if (isAuthenticated) {
+        navigate('/home');
+      } else {
+        navigate('/login');
+      }
+      
+    }, [isAuthenticated, navigate, error, clearError]);
 
 
   // Filter tasks based on completion status

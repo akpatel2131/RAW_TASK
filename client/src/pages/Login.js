@@ -12,19 +12,19 @@ const Login = () => {
   const { login, isAuthenticated, error, clearError } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   // If user is already authenticated, redirect to dashboard
-  //   if (isAuthenticated) {
-  //     navigate('/home');
-  //   }
+  useEffect(() => {
+    // If user is already authenticated, redirect to dashboard
+    if (isAuthenticated) {
+      navigate('/home');
+    }
     
-  //   // Set form error from context error
-  //   if (error) {
-  //     setFormError(error);
-  //     clearError();
-  //   }
-  // }, [isAuthenticated, navigate, error, clearError]);
-
+    // Set form error from context error
+    if (error) {
+      setFormError(error);
+      clearError();
+    }
+  }, [isAuthenticated, navigate, error, clearError]);
+  
   const { email, password } = formData;
 
   const onChange = e => {
