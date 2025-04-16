@@ -37,15 +37,7 @@ The project is organized into two main directories:
    npm install
    ```
 
-3. Create a `.env` file in the server directory with the following variables:
-   ```
-   PORT=5000
-   MONGODB_URI=mongodb://localhost:27017/todo-app
-   JWT_SECRET=your_jwt_secret_key_change_this_in_production
-   ```
-   Note: Replace the MongoDB URI and JWT secret with your own values.
-
-4. Start the backend server:
+3. Start the backend server:
    ```
    npm run dev
    ```
@@ -103,7 +95,3 @@ The project is organized into two main directories:
 - JWT-based authentication
 - Protected routes
 - Secure HTTP-only cookies
-
-## License
-
-This project is licensed under the MIT License.
